@@ -1,0 +1,20 @@
+{
+  "name": "text-to-image-app",
+  "version": "1.0.0",
+  "description": "Professional text-to-image web app built with Cloudflare",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "deploy:backend": "cd backend && npm run deploy",
+    "deploy:frontend": "cd frontend && npm run deploy",
+    "db:init": "cd backend && npm run db:init"
+  },
+  "keywords": ["cloudflare", "ai", "text-to-image", "react"],
+  "author": "Your Name",
+  "license": "MIT",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
+}
