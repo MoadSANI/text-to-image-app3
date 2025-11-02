@@ -1,0 +1,35 @@
+name = "text-to-image-app"
+compatibility_date = "2024-03-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[ai.models]]
+id = "stable-diffusion-xl"
+model = "@cf/stabilityai/stable-diffusion-xl-base-1.0"
+type = "text-to-image"
+
+[env.production]
+vars = { 
+  ENVIRONMENT = "production",
+  MAX_IMAGE_SIZE = "1048576",
+  RATE_LIMIT_REQUESTS = "100",
+  RATE_LIMIT_DURATION = "3600"
+}
+
+[env.development]
+vars = { 
+  ENVIRONMENT = "development",
+  MAX_IMAGE_SIZE = "1048576",
+  RATE_LIMIT_REQUESTS = "1000",
+  RATE_LIMIT_DURATION = "3600"
+}
+
+# Note: You'll need to create these in Cloudflare dashboard and update the IDs
+[[d1_databases]]
+binding = "DB"
+database_name = "image-db"
+database_id = "YOUR_DATABASE_ID_HERE"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "image-storage"
+preview_bucket_name = "image-storage-preview"
